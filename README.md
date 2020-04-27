@@ -1,6 +1,9 @@
 # covid_wdi
+
 R codes for combining COVID data with World Development Indicators (WDI)
+
 Use the codes below in case you are interested in combining COVID data with WDI
+
 library(tidyverse)
 
 ## downolad the death and case data (COVID)
@@ -13,6 +16,7 @@ case <- read_csv("https://data.humdata.org/hxlproxy/data/download/time_series_co
 death <- death %>%
   select( country= `Country/Region`, ends_with("/20"),sub_region = `Sub-region Name`) %>%
   filter(country != "#country+name")
+
 death <- death %>%
   pivot_longer(cols = ends_with("/20"),names_to = "date") 
 
@@ -52,7 +56,9 @@ install.packages("downloader")
 library(downloader)
 
 url <- "http://databank.worldbank.org/data/download/WDI_csv.zip"
+
 download(url, dest="WDI_csv.zip", mode="wb") 
+
 unzip("WDI_csv.zip", exdir = "/Users/shh/Downloads")
 
 wdi <- read_csv("/Users/shh/Downloads/WDIData.csv") # use your own path here 
