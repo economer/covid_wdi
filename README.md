@@ -71,7 +71,7 @@ wdi_5 <- wdi_wide %>%
   filter(country %in% c("China", "United States", "Iran, Islamic Rep.", "Russia", "Italy", "France", "Spain", "United Kingdom", "Belgium", "Germany", "Netherlands", "Brazil" , "Turkey", "Sweden", "Canada", "Switzerland", "Mexico", "Ireland", "Portugal","Russian Federation", "Ecuador","Romania","Austria","Poland")) %>%
   janitor::clean_names()
 
-# make few changes in the names of countries for joining with covid data
+## make few changes in the names of countries for joining with covid data
 wdi_6 <- wdi_5 %>%
   mutate(country = fct_recode(country, Iran = "Iran, Islamic Rep.", US = "United States", Russia = "Russian Federation")) %>%
   select(country = country,year, populatio_65 = population_ages_65_and_above_percent_of_total_population, population = population_total, pop_growth = population_growth_annual_percent) %>% 
