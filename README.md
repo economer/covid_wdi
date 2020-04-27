@@ -65,7 +65,8 @@ case <- case %>%
 ### join the datasets
 all <- dplyr::left_join(death, case, by="id")
 
-
+final_covid <- all %>%
+  select(country = country.x,date = date.x,death,case)
 ## Downlad WDI
 
 install.packages("downloader")
