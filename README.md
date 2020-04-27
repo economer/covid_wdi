@@ -1,10 +1,4 @@
-title: "COVID data and WDI"
-author: "SHH"
-date: "`r Sys.Date()`"
-output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
+
 
 
 # covid_wdi
